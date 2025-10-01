@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau Dashboards - Kajal Khetam | Data Analyst Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f5f5f5; }
+        
+        nav { background: #2c3e50; padding: 15px 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        nav .container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: center; gap: 30px; padding: 0 20px; }
+        nav a { color: white; text-decoration: none; padding: 8px 16px; border-radius: 4px; transition: 0.3s; }
+        nav a:hover, nav a.active { background: #34495e; }
+        
+        .page-header { background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 80px 20px; text-align: center; }
+        .page-header h1 { font-size: 3em; margin-bottom: 15px; }
+        .page-header p { font-size: 1.3em; opacity: 0.95; }
+        
+        .container { max-width: 1400px; margin: 0 auto; padding: 40px 20px; }
+        
+        .dashboard-grid { display: grid; gap: 30px; }
+        
+        .dashboard { background: white; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); overflow: hidden; }
+        
+        .dashboard-header { background: #f8f9fa; padding: 30px; border-bottom: 4px solid #667eea; }
+        .dashboard-header h2 { color: #2c3e50; font-size: 2em; margin-bottom: 10px; }
+        .dashboard-subtitle { color: #666; font-size: 1.1em; margin-bottom: 20px; }
+        
+        .dashboard-meta { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 15px; }
+        .meta-item { display: flex; align-items: center; gap: 8px; color: #555; }
+        
+        .dashboard-content { padding: 30px; }
+        
+        .impact-section { background: linear-gradient(135deg, #667eea15, #764ba215); border-left: 4px solid #667eea; padding: 20px; border-radius: 8px; margin-bottom: 25px; }
+        .impact-section h3 { color: #2c3e50; margin-bottom: 15px; font-size: 1.3em; }
+        
+        .impact-metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; margin-bottom: 20px; }
+        .metric { text-align: center; padding: 15px; background: white; border-radius: 8px; }
+        .metric-value { font-size: 2.5em; font-weight: bold; color: #667eea; }
+        .metric-label { font-size: 0.9em; color: #666; margin-top: 5px; }
+        
+        .insights-list { list-style: none; padding: 0; }
+        .insights-list li { padding: 10px 0 10px 30px; position: relative; color: #555; line-height: 1.6; }
+        .insights-list li:before { content: "💡"; position: absolute; left: 0; }
+        
+        .tableau-embed { border: 3px solid #e0e0e0; border-radius: 10px; overflow: hidden; margin: 30px 0; background: #f8f9fa; }
+        
+        .dashboard-footer { display: flex; justify-content: space-between; align-items: center; padding: 20px 30px; background: #f8f9fa; border-top: 2px solid #e0e0e0; flex-wrap: wrap; gap: 15px; }
+        
+        .tags { display: flex; gap: 8px; flex-wrap: wrap; }
+        .tag { background: #667eea; color: white; padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 500; }
+        
+        .github-link { background: #24292e; color: white; padding: 12px 24px; border-radius: 6px; text-decoration: none; transition: 0.3s; display: inline-flex; align-items: center; gap: 8px; }
+        .github-link:hover { background: #0366d6; transform: translateY(-2px); }
+        
+        .recommendations { background: #fff3cd; border-left: 4px solid #ffc107; padding: 20px; border-radius: 8px; margin-top: 20px; }
+        .recommendations h4 { color: #856404; margin-bottom: 10px; }
+        .recommendations ul { margin-left: 20px; color: #856404; }
+        
+        @media (max-width: 768px) {
+            .page-header h1 { font-size: 2em; }
+            .dashboard-header h2 { font-size: 1.5em; }
+            .impact-metrics { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="container">
+            <a href="index.html">Home</a>
+            <a href="index.html#about">About</a>
+            <a href="projects.html">Projects</a>
+            <a href="dashboards.html" class="active">Dashboards</a>
+            <a href="index.html#contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- HEADER -->
+    <div class="page-header">
+        <h1>📊 Interactive Tableau Dashboards</h1>
+        <p>Data-driven insights solving real business challenges</p>
+    </div>
+
+    <div class="container">
+        
+        <!-- DASHBOARD 1: HERO PROJECT -->
+        <div class="dashboard" id="dashboard1">
+            <div class="dashboard-header">
+                <h2>🏆 CO₂ Production Analysis Dashboard</h2>
+                <p class="dashboard-subtitle">In-depth analysis of CO₂ emissions by region and per capita metrics</p>
+                <div class="dashboard-meta">
+                    <span class="meta-item">📅 Duration: 1960 - 2011</span>
+                    <span class="meta-item">📊 Data: 10,000+ rows</span>
+                    <span class="meta-item">🎯 Domain: Environment/Climate</span>
+                </div>
+            </div>
+            
+            <div class="dashboard-content">
+                <!-- IMPACT SECTION -->
+                <div class="impact-section">
+                    <h3>🎯 Business Impact</h3>
+                    <div class="impact-metrics">
+                        <div class="metric">
+                            <div class="metric-value">12%</div>
+                            <div class="metric-label">Average CO₂ Growth</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">7</div>
+                            <div class="metric-label">Regions Analyzed</div>
+                        </div>
+                    </div>
+                    
+                    <h4 style="color: #2c3e50; margin: 20px 0 10px 0;">💡 Key Insights:</h4>
+                    <ul class="insights-list">
+                        <li>The Middle East & North Africa region overtook North America in total CO₂ output around the 2000s and continues to rise steeply</li>
+                        <li>South Asia shows one of the fastest growth rates, aligning with rapid industrialization.</li>
+                        <li>Despite high per-capita emissions in some countries, Sub-Saharan Africa contributes the least in absolute CO₂</li>
+                        <li>Global initiatives should focus on high-growth regions to effectively curb emissions</li>
+                    </ul>
+                </div>
+
+                <!-- EMBEDDED DASHBOARD -->
+                <div class="tableau-embed">
+                    <iframe 
+                        src="https://public.tableau.com/views/DashboardsStarterTemplate_17572739481230/Dashboard1?:showVizHome=no&:embed=true"
+                        width="100%" 
+                        height="900px" 
+                        frameborder="0"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+            </div>
+
+            <div class="dashboard-footer">
+                <div class="tags">
+                    <span class="tag">Tableau Public</span>
+                    <span class="tag">SQL</span>
+                    <span class="tag">Excel</span>
+                    <span class="tag">Data Visualization</span>
+                    <span class="tag">Business Intelligence</span>
+                </div>
+                <a href="https://github.com/KajalKhetam/co2-production-analysis-tableau" target="_blank" class="github-link">
+                    📁 View Full Documentation
+                </a>
+            </div>
+        </div>
+
+        <!-- DASHBOARD 2 -->
+        <!-- <div class="dashboard" id="dashboard2">
+            <div class="dashboard-header">
+                <h2>Customer Segmentation & RFM Analysis</h2>
+                <p class="dashboard-subtitle">Advanced customer segmentation enabling targeted marketing and personalized engagement strategies</p>
+                <div class="dashboard-meta">
+                    <span class="meta-item">📅 Duration: 2024</span>
+                    <span class="meta-item">📊 Data: 25,000 customers</span>
+                    <span class="meta-item">🎯 Domain: SaaS/Subscription</span>
+                </div>
+            </div>
+            
+            <div class="dashboard-content">
+                <div class="impact-section">
+                    <h3>🎯 Business Impact</h3>
+                    <div class="impact-metrics">
+                        <div class="metric">
+                            <div class="metric-value">5</div>
+                            <div class="metric-label">Segments Identified</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">40%</div>
+                            <div class="metric-label">Conversion Increase</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">60%</div>
+                            <div class="metric-label">Churn Prediction</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">$300K</div>
+                            <div class="metric-label">Saved Revenue</div>
+                        </div>
+                    </div>
+                    
+                    <h4 style="color: #2c3e50; margin: 20px 0 10px 0;">💡 Key Insights:</h4>
+                    <ul class="insights-list">
+                        <li>Champions segment (15% of base) generates 45% of total revenue</li>
+                        <li>At-risk customers show 60% churn probability without intervention</li>
+                        <li>New customer onboarding optimization can improve 30-day retention by 25%</li>
+                        <li>Cross-sell opportunities worth $150K identified in Loyal segment</li>
+                    </ul>
+                </div>
+
+                <div class="tableau-embed">
+                    <iframe 
+                        src="https://public.tableau.com/views/CustomerSegmentation/Dashboard?:embed=y&:display_count=yes&:showVizHome=no"
+                        width="100%" 
+                        height="900px" 
+                        frameborder="0"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <div class="recommendations">
+                    <h4>📋 Strategic Recommendations:</h4>
+                    <ul>
+                        <li>Implement VIP program for Champions segment with exclusive benefits</li>
+                        <li>Launch win-back campaign for At-Risk segment with personalized offers</li>
+                        <li>Develop automated nurture sequences for New Customers</li>
+                        <li>Create targeted upsell campaigns for Loyal segment based on usage patterns</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="dashboard-footer">
+                <div class="tags">
+                    <span class="tag">Tableau</span>
+                    <span class="tag">Python (RFM)</span>
+                    <span class="tag">SQL</span>
+                    <span class="tag">Customer Analytics</span>
+                </div>
+                <a href="https://github.com/KajalKhetam/customer-segmentation" target="_blank" class="github-link">
+                    📁 View Full Documentation
+                </a>
+            </div>
+        </div> -->
+
+        <!-- ADD MORE DASHBOARDS FOLLOWING THE SAME STRUCTURE -->
+
+    </div>
+
+    <footer style="background: #2c3e50; color: white; text-align: center; padding: 40px 20px; margin-top: 60px;">
+        <p style="font-size: 1.1em; margin-bottom: 15px;">&copy; 2025 Kajal Khetam | Data Analyst</p>
+        <p>
+            <a href="https://github.com/KajalKhetam" target="_blank" style="color: #3498db; margin: 0 15px;">GitHub</a> | 
+            <a href="https://www.linkedin.com/in/kajalkhetam" target="_blank" style="color: #3498db; margin: 0 15px;">LinkedIn</a> | 
+            <a href="mailto:kajalkhetam@gmail.com" style="color: #3498db; margin: 0 15px;">Email</a>
+        </p>
+    </footer>
+</body>
+</html>
